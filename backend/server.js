@@ -1,6 +1,4 @@
-const express = require("express");
-
-const app = express();
+const app = require("./app");
 
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
