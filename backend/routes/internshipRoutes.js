@@ -1,10 +1,13 @@
 const express = require("express");
+const {
+  getInternships,
+  createInternship
+} = require("../controllers/internshipController");
+
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.json({
-    message: "List of internships"
-  });
-});
+router.route("/")
+  .get(getInternships)
+  .post(createInternship);
 
 module.exports = router;
