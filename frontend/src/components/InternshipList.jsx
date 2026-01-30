@@ -1,14 +1,12 @@
+import { useState } from "react";
 import InternshipItem from "./InternshipItem";
 
-function InternshipList() {
-  const internships = [
-    { id: 1, company: "Amazon", role: "SDE Intern", status: "Applied" },
-    { id: 2, company: "Google", role: "SWE Intern", status: "Interview" }
-  ];
-
+function InternshipList({ internships }) {
   return (
     <div>
       <h3>My Applications</h3>
+      {internships.length === 0 && <p>No internships added yet</p>}
+
       {internships.map((internship) => (
         <InternshipItem
           key={internship.id}
