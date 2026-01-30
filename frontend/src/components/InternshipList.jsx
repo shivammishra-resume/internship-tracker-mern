@@ -9,7 +9,7 @@ function InternshipList({ internships }) {
 
       {internships.map((internship) => (
         <InternshipItem
-          key={internship.id}
+          key={internship._id}
           internship={internship}
         />
       ))}

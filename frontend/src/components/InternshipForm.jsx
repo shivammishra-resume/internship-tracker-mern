@@ -10,7 +10,6 @@ function InternshipForm({ onAddInternship }) {
     if (!company || !role) return;
 
     onAddInternship({
-      id: Date.now(),
       company,
       role,
       status: "Applied"
