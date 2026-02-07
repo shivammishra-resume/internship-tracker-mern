@@ -4,18 +4,19 @@ function InternshipItem({ internship, onUpdate, onDelete }) {
   };
 
   return (
-    <div>
-      <h4>{internship.company}</h4>
-      <p>{internship.role}</p>
+    <div className="border w-fit p-3 rounded-2xl h-40 m-5 ">
+      <h4>Company: {internship.company}</h4>
+      <p>Role: {internship.role}</p>
 
-      <select value={internship.status} onChange={updateStatus}>
+      <div>Status: <select className="border rounded m-0.5" value={internship.status} onChange={updateStatus}>
         <option value="Applied">Applied</option>
         <option value="Interview">Interview</option>
         <option value="Offer">Offer</option>
         <option value="Rejected">Rejected</option>
       </select>
+      </div>
 
-      <button onClick={() => onDelete(internship._id)}>
+      <button className="bg-red-500 pl-2 pr-2 rounded mt-1" onClick={() => onDelete(internship._id)}>
         Delete
       </button>
     </div>

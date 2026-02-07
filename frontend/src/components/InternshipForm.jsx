@@ -20,8 +20,10 @@ function InternshipForm({ onAddInternship }) {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <div className="size-full p-5 mt-5">
+      <form onSubmit={submitHandler} className="grid grid-cols-3 ">
       <input
+        className="border-2 mr-5 pl-4"
         type="text"
         placeholder="Company"
         value={company}
@@ -29,14 +31,16 @@ function InternshipForm({ onAddInternship }) {
       />
 
       <input
+        className="border-2 mr-5 pl-4"
         type="text"
         placeholder="Role"
         value={role}
         onChange={(e) => setRole(e.target.value)}
       />
 
-      <button type="submit">Add Internship</button>
+      <button className="border-2 w-30 rounded p-1 bg-gray-400" type="submit">Add Internship</button>
     </form>
+    </div>
   );
 }
 

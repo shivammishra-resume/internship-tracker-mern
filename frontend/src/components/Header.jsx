@@ -1,7 +1,7 @@
 function Header() {
   return (
-    <header>
-      <h2>Internship Tracker</h2>
+    <header className="text-center font-bold text-3xl">
+      <h2 className=" ">Internship Tracker</h2>
     </header>
   );
 }

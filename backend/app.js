@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 
-app.use(cors()); // 👈 allow frontend
+app.use(cors()); 
 app.use(express.json());
 
 app.use("/api/internships", internshipRoutes);

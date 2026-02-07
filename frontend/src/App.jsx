@@ -86,10 +86,11 @@ function App() {
       <Header />
       <InternshipForm onAddInternship={addInternshipHandler} />
       <InternshipList
-        internships={internships}
-        onUpdate={updateInternshipHandler}
-        onDelete={deleteInternshipHandler}
-      />
+          internships={internships}
+          onUpdate={updateInternshipHandler}
+          onDelete={deleteInternshipHandler}
+        />
+
     </div>
   );
 }
