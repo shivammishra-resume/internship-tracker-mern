@@ -1,16 +1,16 @@
-import { useState } from "react";
 import InternshipItem from "./InternshipItem";
 
-function InternshipList({ internships }) {
+function InternshipList({ internships, onUpdate, onDelete }) {
   return (
     <div>
       <h3>My Applications</h3>
-      {internships.length === 0 && <p>No internships added yet</p>}
 
       {internships.map((internship) => (
         <InternshipItem
           key={internship._id}
           internship={internship}
+          onUpdate={onUpdate}
+          onDelete={onDelete}
         />
       ))}
     </div>

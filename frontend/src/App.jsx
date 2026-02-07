@@ -28,9 +28,9 @@ function App() {
       const res = await fetch("http://localhost:5000/api/internships", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(internship)
+        body: JSON.stringify(internship),
       });
 
       const data = await res.json();
@@ -40,13 +40,53 @@ function App() {
     }
   };
 
+  const updateInternshipHandler = async (id, updates) => {
+    try {
+      const res = await fetch(
+        `http://localhost:5000/api/internships/${id}`,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updates),
+        }
+      );
+
+      const data = await res.json();
+
+      setInternships((prev) =>
+        prev.map((i) => (i._id === id ? data : i))
+      );
+    } catch (error) {
+      console.error("Update failed");
+    }
+  };
+
+  const deleteInternshipHandler = async (id) => {
+    try {
+      await fetch(
+        `http://localhost:5000/api/internships/${id}`,
+        { method: "DELETE" }
+      );
+
+      setInternships((prev) =>
+        prev.filter((i) => i._id !== id)
+      );
+    } catch (error) {
+      console.error("Delete failed");
+    }
+  };
+
   if (loading) return <p>Loading...</p>;
 
   return (
     <div>
       <Header />
       <InternshipForm onAddInternship={addInternshipHandler} />
-      <InternshipList internships={internships} />
+      <InternshipList
+        internships={internships}
+        onUpdate={updateInternshipHandler}
+        onDelete={deleteInternshipHandler}
+      />
     </div>
   );
 }
