@@ -5,6 +5,11 @@ const errorHandler = require("./middleware/errorMiddleware");
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Internship Tracker API running");
+});
+
+
 app.use(cors()); // 👈 allow frontend
 app.use(express.json());
 

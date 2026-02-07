@@ -7,10 +7,13 @@ function App() {
   const [internships, setInternships] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
+
   useEffect(() => {
     const fetchInternships = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/internships");
+        const res = await fetch(`${API_URL}/api/internships`);
         const data = await res.json();
         setInternships(data);
       } catch (error) {
@@ -25,7 +28,7 @@ function App() {
 
   const addInternshipHandler = async (internship) => {
     try {
-      const res = await fetch("http://localhost:5000/api/internships", {
+      const res = await fetch(`${API_URL}/api/internships`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,7 +46,7 @@ function App() {
   const updateInternshipHandler = async (id, updates) => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/internships/${id}`,
+        `${API_URL}/api/internships/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -64,7 +67,7 @@ function App() {
   const deleteInternshipHandler = async (id) => {
     try {
       await fetch(
-        `http://localhost:5000/api/internships/${id}`,
+        `${API_URL}/api/internships/${id}`,
         { method: "DELETE" }
       );
 
